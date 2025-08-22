@@ -6,8 +6,8 @@ import Image from 'next/image';
 
 export default function SignupPage() {
   return (
-    <div className="flex items-center justify-center min-h-screen bg-[#4AD59A]">
-      <div className="text-center mb-10 absolute top-20">
+    <div className="flex flex-col items-center justify-center min-h-screen bg-[#4AD59A] space-y-8">
+      <div className="text-center">
           <Image src="/logo.png" alt="유턴 로고" width={100} height={100} />
           <h1 className="text-6xl font-bold text-white">유턴</h1>
           <p className="text-white text-lg mt-2">귀농을 꿈꾸는 당신을 위한 AI 멘토</p>
