@@ -55,8 +55,9 @@ export default function GuidePage() {
             </CardHeader>
             <CardContent className="space-y-4">
               <div className="bg-gray-900 text-gray-100 p-4 rounded-lg overflow-x-auto">
-                <code className="text-sm">
-                  {`# Next.js 프로젝트 생성
+                <pre className="text-sm whitespace-pre-wrap">
+                  <code>
+{`# Next.js 프로젝트 생성
 npx create-next-app@latest my-app --typescript --tailwind --eslint
 cd my-app
 
@@ -68,7 +69,8 @@ npm install @supabase/supabase-js
 
 # 개발 서버 실행
 npm run dev`}
-                </code>
+                  </code>
+                </pre>
               </div>
             </CardContent>
           </Card>
@@ -103,10 +105,12 @@ npm run dev`}
                 <div>
                   <h4 className="font-semibold mb-2">사용법</h4>
                   <div className="bg-gray-100 p-3 rounded text-sm">
-                    <code>{`// app/page.tsx
+                    <pre className="whitespace-pre-wrap">
+                      <code>{`// app/page.tsx
 export default function Page() {
   return <h1>Hello, Next.js!</h1>
 }`}</code>
+                    </pre>
                   </div>
                 </div>
               </CardContent>
@@ -136,11 +140,13 @@ export default function Page() {
                 <div>
                   <h4 className="font-semibold mb-2">기본 타입</h4>
                   <div className="bg-gray-100 p-3 rounded text-sm">
-                    <code>{`interface User {
+                    <pre className="whitespace-pre-wrap">
+                      <code>{`interface User {
   id: number
   name: string
   email: string
 }`}</code>
+                    </pre>
                   </div>
                 </div>
               </CardContent>
@@ -168,9 +174,11 @@ export default function Page() {
                 <div>
                   <h4 className="font-semibold mb-2">예시</h4>
                   <div className="bg-gray-100 p-3 rounded text-sm">
-                    <code>{`<div className="bg-blue-500 text-white p-4 rounded-lg shadow-md">
+                    <pre className="whitespace-pre-wrap">
+                      <code>{`<div className="bg-blue-500 text-white p-4 rounded-lg shadow-md">
   Beautiful Card
 </div>`}</code>
+                    </pre>
                   </div>
                 </div>
               </CardContent>
@@ -198,8 +206,10 @@ export default function Page() {
                 <div>
                   <h4 className="font-semibold mb-2">컴포넌트 추가</h4>
                   <div className="bg-gray-100 p-3 rounded text-sm">
-                    <code>{`npx shadcn-ui@latest add button
+                    <pre className="whitespace-pre-wrap">
+                      <code>{`npx shadcn-ui@latest add button
 npx shadcn-ui@latest add card`}</code>
+                    </pre>
                   </div>
                 </div>
               </CardContent>
@@ -228,9 +238,11 @@ npx shadcn-ui@latest add card`}</code>
                 <div>
                   <h4 className="font-semibold mb-2">클라이언트 설정</h4>
                   <div className="bg-gray-100 p-3 rounded text-sm">
-                    <code>{`import { createClient } from '@supabase/supabase-js'
+                    <pre className="whitespace-pre-wrap">
+                      <code>{`import { createClient } from '@supabase/supabase-js'
 
 const supabase = createClient(url, key)`}</code>
+                    </pre>
                   </div>
                 </div>
               </CardContent>
@@ -259,11 +271,13 @@ const supabase = createClient(url, key)`}</code>
                 <div>
                   <h4 className="font-semibold mb-2">배포 방법</h4>
                   <div className="bg-gray-100 p-3 rounded text-sm">
-                    <code>{`# Vercel CLI 설치
+                    <pre className="whitespace-pre-wrap">
+                      <code>{`# Vercel CLI 설치
 npm i -g vercel
 
 # 배포
 vercel --prod`}</code>
+                    </pre>
                   </div>
                 </div>
               </CardContent>
