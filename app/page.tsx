@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
+import Link from "next/link"; // Link 컴포넌트 추가
 import {
   Card,
   CardContent,
@@ -13,14 +14,25 @@ import { Badge } from "@/components/ui/badge";
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-center p-24">
-      <div className="text-center">
+      <div className="text-center mb-8">
         <h1 className="text-4xl font-bold mb-4">웹 실험실</h1>
         <p className="text-gray-600 mb-8">
           웹 개발을 공부하면서 여러 페이지를 만들어 보는 사이트입니다
         </p>
       </div>
 
-      <div className="flex gap-2">
+      <div className="flex gap-4 mb-8">
+        <Link href="/login" passHref>
+          <Button className="px-8 py-4 text-lg">로그인</Button>
+        </Link>
+        <Link href="/signup" passHref>
+          <Button variant="outline" className="px-8 py-4 text-lg">
+            회원가입
+          </Button>
+        </Link>
+      </div>
+
+      <div className="flex gap-2 mb-8">
         <Badge>React</Badge>
         <Badge variant="secondary">Next.js</Badge>
         <Badge variant="outline">TypeScript</Badge>

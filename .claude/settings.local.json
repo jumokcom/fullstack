@@ -1,0 +1,20 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__ide__getDiagnostics",
+      "Bash(npm install:*)",
+      "Bash(node:*)",
+      "Bash(npx:*)",
+      "Bash(echo:*)",
+      "Bash(set SUPABASE_ACCESS_TOKEN)",
+      "Bash(set SUPABASE_PROJECT_REF)",
+      "mcp__ide__executeCode",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)",
+      "Bash(git reset:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
