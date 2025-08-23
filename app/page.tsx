@@ -7,6 +7,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { TechIcon } from "@/components/tech-icon";
 import Link from "next/link";
 
 export default function HomePage() {
@@ -43,7 +44,8 @@ export default function HomePage() {
           <Card className="hover:shadow-lg transition-shadow">
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
-                🚀 Next.js
+                <TechIcon name="nextjs" />
+                Next.js
                 <Badge variant="outline">Framework</Badge>
               </CardTitle>
               <CardDescription>React 기반의 풀스택 프레임워크</CardDescription>
@@ -59,7 +61,8 @@ export default function HomePage() {
           <Card className="hover:shadow-lg transition-shadow">
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
-                🔷 TypeScript
+                <TechIcon name="typescript" />
+                TypeScript
                 <Badge variant="outline">Language</Badge>
               </CardTitle>
               <CardDescription>
@@ -76,7 +79,8 @@ export default function HomePage() {
           <Card className="hover:shadow-lg transition-shadow">
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
-                🎨 Tailwind CSS
+                <TechIcon name="tailwind" />
+                Tailwind CSS
                 <Badge variant="outline">Styling</Badge>
               </CardTitle>
               <CardDescription>유틸리티 우선 CSS 프레임워크</CardDescription>
@@ -91,7 +95,8 @@ export default function HomePage() {
           <Card className="hover:shadow-lg transition-shadow">
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
-                🧩 Shadcn/ui
+                <TechIcon name="react" />
+                Shadcn/ui
                 <Badge variant="outline">Components</Badge>
               </CardTitle>
               <CardDescription>재사용 가능한 UI 컴포넌트</CardDescription>
@@ -107,7 +112,8 @@ export default function HomePage() {
           <Card className="hover:shadow-lg transition-shadow">
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
-                ⚡ Supabase
+                <TechIcon name="supabase" />
+                Supabase
                 <Badge variant="outline">Backend</Badge>
               </CardTitle>
               <CardDescription>오픈소스 Firebase 대안</CardDescription>
@@ -122,7 +128,8 @@ export default function HomePage() {
           <Card className="hover:shadow-lg transition-shadow">
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
-                🌐 Vercel
+                <TechIcon name="vercel" />
+                Vercel
                 <Badge variant="outline">Deploy</Badge>
               </CardTitle>
               <CardDescription>클라우드 플랫폼</CardDescription>
