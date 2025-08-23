@@ -14,7 +14,13 @@
       "Bash(git push:*)",
       "Bash(git reset:*)",
       "mcp__supabase__apply_migration",
-      "Read(/C:\\Users\\jumok/**)"
+      "Read(/C:\\Users\\jumok/**)",
+      "mcp__github__search_repositories",
+      "mcp__context7__resolve-library-id",
+      "mcp__context7__get-library-docs",
+      "Read(/C:\\Users\\jumok/**)",
+      "mcp__supabase__execute_sql",
+      "Bash(npm run build:*)"
     ],
     "deny": [],
     "ask": []
