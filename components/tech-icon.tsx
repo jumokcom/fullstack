@@ -9,8 +9,8 @@ import {
   SiRadixui,
   SiNodedotjs,
   SiPostgresql,
-  SiVscode,
-  SiClaude
+  SiVisualstudiocode,
+  SiOpenai
 } from 'react-icons/si';
 import { cn } from '@/lib/utils';
 
@@ -25,8 +25,8 @@ const techIcons = {
   radix: { icon: SiRadixui, color: 'text-purple-600' },
   nodejs: { icon: SiNodedotjs, color: 'text-green-500' },
   postgresql: { icon: SiPostgresql, color: 'text-blue-700' },
-  vscode: { icon: SiVscode, color: 'text-blue-600' },
-  claude: { icon: SiClaude, color: 'text-orange-500' },
+  vscode: { icon: SiVisualstudiocode, color: 'text-blue-600' },
+  claude: { icon: SiOpenai, color: 'text-green-600' },
 } as const;
 
 export type TechName = keyof typeof techIcons;
@@ -73,7 +73,7 @@ export function getTechInfo(name: TechName) {
     nodejs: { displayName: 'Node.js', category: 'Runtime' },
     postgresql: { displayName: 'PostgreSQL', category: 'Database' },
     vscode: { displayName: 'VS Code', category: 'Editor' },
-    claude: { displayName: 'Claude', category: 'AI' },
+    claude: { displayName: 'Claude AI', category: 'AI' },
   } as const;
   
   return techInfo[name];
