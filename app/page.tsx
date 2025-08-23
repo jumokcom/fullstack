@@ -1,7 +1,13 @@
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import Link from "next/link"
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import Link from "next/link";
 
 export default function HomePage() {
   return (
@@ -16,12 +22,15 @@ export default function HomePage() {
             Modern Web Development
           </h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
-            Claude Code와 MCP를 활용한 풀스택 웹 개발 플랫폼입니다. 
-            모든 현대적 기술 스택을 통합하여 빠른 개발을 지원합니다.
+            Claude Code와 MCP를 활용한 풀스택 웹 개발 플랫폼입니다. 모든 현대적
+            기술 스택을 통합하여 빠른 개발을 지원합니다.
           </p>
           <div className="flex gap-4 justify-center">
             <Button size="lg" asChild>
               <Link href="/auth/signup">시작하기</Link>
+            </Button>
+            <Button variant="outline" size="lg" asChild>
+              <Link href="/guide">개발 가이드</Link>
             </Button>
             <Button variant="outline" size="lg" asChild>
               <Link href="/dashboard">대시보드</Link>
@@ -37,13 +46,12 @@ export default function HomePage() {
                 🚀 Next.js
                 <Badge variant="outline">Framework</Badge>
               </CardTitle>
-              <CardDescription>
-                React 기반의 풀스택 프레임워크
-              </CardDescription>
+              <CardDescription>React 기반의 풀스택 프레임워크</CardDescription>
             </CardHeader>
             <CardContent>
               <p className="text-sm text-gray-600">
-                서버 사이드 렌더링, 정적 생성, API 라우트를 지원하는 현대적 React 프레임워크
+                서버 사이드 렌더링, 정적 생성, API 라우트를 지원하는 현대적
+                React 프레임워크
               </p>
             </CardContent>
           </Card>
@@ -71,9 +79,7 @@ export default function HomePage() {
                 🎨 Tailwind CSS
                 <Badge variant="outline">Styling</Badge>
               </CardTitle>
-              <CardDescription>
-                유틸리티 우선 CSS 프레임워크
-              </CardDescription>
+              <CardDescription>유틸리티 우선 CSS 프레임워크</CardDescription>
             </CardHeader>
             <CardContent>
               <p className="text-sm text-gray-600">
@@ -88,13 +94,12 @@ export default function HomePage() {
                 🧩 Shadcn/ui
                 <Badge variant="outline">Components</Badge>
               </CardTitle>
-              <CardDescription>
-                재사용 가능한 UI 컴포넌트
-              </CardDescription>
+              <CardDescription>재사용 가능한 UI 컴포넌트</CardDescription>
             </CardHeader>
             <CardContent>
               <p className="text-sm text-gray-600">
-                Tailwind CSS와 Radix UI를 기반으로 한 아름다운 컴포넌트 라이브러리
+                Tailwind CSS와 Radix UI를 기반으로 한 아름다운 컴포넌트
+                라이브러리
               </p>
             </CardContent>
           </Card>
@@ -105,9 +110,7 @@ export default function HomePage() {
                 ⚡ Supabase
                 <Badge variant="outline">Backend</Badge>
               </CardTitle>
-              <CardDescription>
-                오픈소스 Firebase 대안
-              </CardDescription>
+              <CardDescription>오픈소스 Firebase 대안</CardDescription>
             </CardHeader>
             <CardContent>
               <p className="text-sm text-gray-600">
@@ -122,9 +125,7 @@ export default function HomePage() {
                 🌐 Vercel
                 <Badge variant="outline">Deploy</Badge>
               </CardTitle>
-              <CardDescription>
-                클라우드 플랫폼
-              </CardDescription>
+              <CardDescription>클라우드 플랫폼</CardDescription>
             </CardHeader>
             <CardContent>
               <p className="text-sm text-gray-600">
@@ -141,21 +142,27 @@ export default function HomePage() {
             <div className="p-6 bg-white rounded-lg shadow-md">
               <div className="text-4xl mb-4">🔐</div>
               <h3 className="text-xl font-semibold mb-2">안전한 인증</h3>
-              <p className="text-gray-600">Supabase Auth를 통한 소셜 로그인 및 이메일 인증 지원</p>
+              <p className="text-gray-600">
+                Supabase Auth를 통한 소셜 로그인 및 이메일 인증 지원
+              </p>
             </div>
             <div className="p-6 bg-white rounded-lg shadow-md">
               <div className="text-4xl mb-4">⚡</div>
               <h3 className="text-xl font-semibold mb-2">빠른 개발</h3>
-              <p className="text-gray-600">Claude Code와 MCP를 활용한 AI 지원 개발 환경</p>
+              <p className="text-gray-600">
+                Claude Code와 MCP를 활용한 AI 지원 개발 환경
+              </p>
             </div>
             <div className="p-6 bg-white rounded-lg shadow-md">
               <div className="text-4xl mb-4">🚀</div>
               <h3 className="text-xl font-semibold mb-2">즉시 배포</h3>
-              <p className="text-gray-600">Vercel을 통한 원클릭 배포 및 글로벌 CDN 지원</p>
+              <p className="text-gray-600">
+                Vercel을 통한 원클릭 배포 및 글로벌 CDN 지원
+              </p>
             </div>
           </div>
         </div>
       </section>
     </div>
-  )
+  );
 }
