@@ -1,106 +1,112 @@
-'use client'
+"use client";
 
-import { useState, useEffect } from 'react'
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import Link from "next/link"
-import { useAuth } from "@/hooks/useAuth"
-import { supabase } from "@/lib/supabase"
-import { useRouter } from 'next/navigation'
-import type { Profile, Project } from "@/lib/supabase"
+import { useState, useEffect } from "react";
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import Link from "next/link";
+import { useAuth } from "@/hooks/useAuth";
+import { supabase } from "@/lib/supabase";
+import { useRouter } from "next/navigation";
+import type { Profile, Project } from "@/lib/supabase";
 
 export default function DashboardPage() {
-  const { user, loading } = useAuth()
-  const [profile, setProfile] = useState<Profile | null>(null)
-  const [projects, setProjects] = useState<Project[]>([])
-  const [projectsLoading, setProjectsLoading] = useState(true)
-  const router = useRouter()
+  const { user, loading } = useAuth();
+  const [profile, setProfile] = useState<Profile | null>(null);
+  const [projects, setProjects] = useState<Project[]>([]);
+  const [projectsLoading, setProjectsLoading] = useState(true);
+  const router = useRouter();
 
   useEffect(() => {
     if (!loading && !user) {
-      router.push('/auth/login')
-      return
+      router.push("/auth/login");
+      return;
     }
 
     if (user) {
-      fetchProfile()
-      fetchProjects()
+      fetchProfile();
+      fetchProjects();
     }
-  }, [user, loading, router])
+  }, [user, loading, router]);
 
   const fetchProfile = async () => {
-    if (!user) return
+    if (!user) return;
 
     try {
       const { data, error } = await supabase
-        .from('profiles')
-        .select('*')
-        .eq('id', user.id)
-        .single()
+        .from("profiles")
+        .select("*")
+        .eq("id", user.id)
+        .single();
 
-      if (error && error.code !== 'PGRST116') {
-        console.error('Error fetching profile:', error)
+      if (error && error.code !== "PGRST116") {
+        console.error("Error fetching profile:", error);
       } else if (data) {
-        setProfile(data)
+        setProfile(data);
       }
     } catch (error) {
-      console.error('Error fetching profile:', error)
+      console.error("Error fetching profile:", error);
     }
-  }
+  };
 
   const fetchProjects = async () => {
-    if (!user) return
+    if (!user) return;
 
     try {
       const { data, error } = await supabase
-        .from('projects')
-        .select('*')
-        .eq('user_id', user.id)
-        .order('created_at', { ascending: false })
+        .from("projects")
+        .select("*")
+        .eq("user_id", user.id)
+        .order("created_at", { ascending: false });
 
       if (error) {
-        console.error('Error fetching projects:', error)
+        console.error("Error fetching projects:", error);
       } else {
-        setProjects(data || [])
+        setProjects(data || []);
       }
     } catch (error) {
-      console.error('Error fetching projects:', error)
+      console.error("Error fetching projects:", error);
     } finally {
-      setProjectsLoading(false)
+      setProjectsLoading(false);
     }
-  }
+  };
 
   const handleLogout = async () => {
-    await supabase.auth.signOut()
-    router.push('/')
-  }
+    await supabase.auth.signOut();
+    router.push("/");
+  };
 
   const getStatusColor = (status: string) => {
     switch (status) {
-      case 'active':
-        return 'bg-green-100 text-green-800'
-      case 'in-progress':
-        return 'bg-yellow-100 text-yellow-800'
-      case 'planned':
-        return 'bg-blue-100 text-blue-800'
+      case "active":
+        return "bg-green-100 text-green-800";
+      case "in-progress":
+        return "bg-yellow-100 text-yellow-800";
+      case "planned":
+        return "bg-blue-100 text-blue-800";
       default:
-        return 'bg-gray-100 text-gray-800'
+        return "bg-gray-100 text-gray-800";
     }
-  }
+  };
 
   const getStatusText = (status: string) => {
     switch (status) {
-      case 'active':
-        return '활성'
-      case 'in-progress':
-        return '진행중'
-      case 'planned':
-        return '계획됨'
+      case "active":
+        return "활성";
+      case "in-progress":
+        return "진행중";
+      case "planned":
+        return "계획됨";
       default:
-        return '알 수 없음'
+        return "알 수 없음";
     }
-  }
+  };
 
   if (loading) {
     return (
@@ -110,11 +116,11 @@ export default function DashboardPage() {
           <p className="text-gray-600">로딩 중...</p>
         </div>
       </div>
-    )
+    );
   }
 
   if (!user) {
-    return null // Will redirect in useEffect
+    return null; // Will redirect in useEffect
   }
 
   return (
@@ -146,18 +152,21 @@ export default function DashboardPage() {
             <CardHeader>
               <CardTitle>환영합니다! 🎉</CardTitle>
               <CardDescription>
-                {profile?.name || user.email}님, Modern Web Development 플랫폼에 오신 것을 환영합니다.
+                {profile?.name || user.email}님, Modern Web Development 플랫폼에
+                오신 것을 환영합니다.
               </CardDescription>
             </CardHeader>
             <CardContent>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <div className="text-center p-4 bg-blue-50 rounded-lg">
-                  <div className="text-2xl font-bold text-blue-600">{projects.length}</div>
+                  <div className="text-2xl font-bold text-blue-600">
+                    {projects.length}
+                  </div>
                   <div className="text-sm text-gray-600">총 프로젝트</div>
                 </div>
                 <div className="text-center p-4 bg-green-50 rounded-lg">
                   <div className="text-2xl font-bold text-green-600">
-                    {projects.filter(p => p.status === 'active').length}
+                    {projects.filter((p) => p.status === "active").length}
                   </div>
                   <div className="text-sm text-gray-600">활성 프로젝트</div>
                 </div>
@@ -174,14 +183,15 @@ export default function DashboardPage() {
         <div className="mb-8">
           <div className="flex justify-between items-center mb-6">
             <h2 className="text-xl font-semibold text-gray-900">내 프로젝트</h2>
-            <Button>
-              + 새 프로젝트
-            </Button>
+            <Button>+ 새 프로젝트</Button>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {projects.map((project) => (
-              <Card key={project.id} className="hover:shadow-lg transition-shadow">
+              <Card
+                key={project.id}
+                className="hover:shadow-lg transition-shadow"
+              >
                 <CardHeader>
                   <div className="flex justify-between items-start">
                     <CardTitle className="text-lg">{project.name}</CardTitle>
@@ -194,10 +204,16 @@ export default function DashboardPage() {
                 <CardContent>
                   <div className="space-y-3">
                     <div>
-                      <div className="text-sm font-medium text-gray-700 mb-2">기술 스택:</div>
+                      <div className="text-sm font-medium text-gray-700 mb-2">
+                        기술 스택:
+                      </div>
                       <div className="flex flex-wrap gap-1">
                         {project.tech_stack?.map((tech, index) => (
-                          <Badge key={index} variant="outline" className="text-xs">
+                          <Badge
+                            key={index}
+                            variant="outline"
+                            className="text-xs"
+                          >
                             {tech}
                           </Badge>
                         )) || (
@@ -224,7 +240,9 @@ export default function DashboardPage() {
 
         {/* Quick Actions */}
         <div>
-          <h2 className="text-xl font-semibold text-gray-900 mb-6">빠른 작업</h2>
+          <h2 className="text-xl font-semibold text-gray-900 mb-6">
+            빠른 작업
+          </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             <Button variant="outline" className="h-20 flex-col">
               <div className="text-2xl mb-1">📊</div>
@@ -248,5 +266,5 @@ export default function DashboardPage() {
         </div>
       </main>
     </div>
-  )
+  );
 }

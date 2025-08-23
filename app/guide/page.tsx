@@ -8,6 +8,16 @@ import {
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import Link from "next/link";
+import { 
+  SiNextdotjs, 
+  SiTypescript, 
+  SiTailwindcss, 
+  SiSupabase, 
+  SiVercel,
+  SiGithub,
+  SiReact,
+  SiRadixui 
+} from 'react-icons/si';
 
 export default function GuidePage() {
   return (
@@ -86,7 +96,8 @@ npm run dev`}
             <Card className="h-full">
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
-                  🚀 Next.js
+                  <SiNextdotjs className="w-5 h-5" />
+                  Next.js
                   <Badge variant="outline">Framework</Badge>
                 </CardTitle>
                 <CardDescription>React 기반 풀스택 프레임워크</CardDescription>
@@ -120,7 +131,8 @@ export default function Page() {
             <Card className="h-full">
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
-                  🔷 TypeScript
+                  <SiTypescript className="w-5 h-5 text-blue-600" />
+                  TypeScript
                   <Badge variant="outline">Language</Badge>
                 </CardTitle>
                 <CardDescription>
@@ -156,7 +168,8 @@ export default function Page() {
             <Card className="h-full">
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
-                  🎨 Tailwind CSS
+                  <SiTailwindcss className="w-5 h-5 text-cyan-500" />
+                  Tailwind CSS
                   <Badge variant="outline">Styling</Badge>
                 </CardTitle>
                 <CardDescription>유틸리티 우선 CSS 프레임워크</CardDescription>
@@ -188,7 +201,8 @@ export default function Page() {
             <Card className="h-full">
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
-                  🧩 Shadcn/ui
+                  <SiReact className="w-5 h-5 text-blue-500" />
+                  Shadcn/ui
                   <Badge variant="outline">Components</Badge>
                 </CardTitle>
                 <CardDescription>재사용 가능한 UI 컴포넌트</CardDescription>
@@ -219,7 +233,8 @@ npx shadcn-ui@latest add card`}</code>
             <Card className="h-full">
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
-                  ⚡ Supabase
+                  <SiSupabase className="w-5 h-5 text-green-600" />
+                  Supabase
                   <Badge variant="outline">Backend</Badge>
                 </CardTitle>
                 <CardDescription>오픈소스 Firebase 대안</CardDescription>
@@ -252,7 +267,8 @@ const supabase = createClient(url, key)`}</code>
             <Card className="h-full">
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
-                  🌐 Vercel
+                  <SiVercel className="w-5 h-5" />
+                  Vercel
                   <Badge variant="outline">Deploy</Badge>
                 </CardTitle>
                 <CardDescription>Next.js 최적화 배포 플랫폼</CardDescription>
@@ -387,28 +403,38 @@ vercel --prod`}</code>
               {
                 name: "Next.js Docs",
                 url: "https://nextjs.org/docs",
-                icon: "🚀",
+                IconComponent: SiNextdotjs,
+                iconClass: "text-2xl",
               },
               {
                 name: "TypeScript Handbook",
                 url: "https://www.typescriptlang.org/docs/",
-                icon: "🔷",
+                IconComponent: SiTypescript,
+                iconClass: "text-2xl text-blue-600",
               },
               {
                 name: "Tailwind CSS",
                 url: "https://tailwindcss.com/docs",
-                icon: "🎨",
+                IconComponent: SiTailwindcss,
+                iconClass: "text-2xl text-cyan-500",
               },
-              { name: "Shadcn/ui", url: "https://ui.shadcn.com/", icon: "🧩" },
+              { 
+                name: "Shadcn/ui", 
+                url: "https://ui.shadcn.com/", 
+                IconComponent: SiReact,
+                iconClass: "text-2xl text-blue-500",
+              },
               {
                 name: "Supabase Docs",
                 url: "https://supabase.com/docs",
-                icon: "⚡",
+                IconComponent: SiSupabase,
+                iconClass: "text-2xl text-green-600",
               },
               {
                 name: "Vercel Guide",
                 url: "https://vercel.com/docs",
-                icon: "🌐",
+                IconComponent: SiVercel,
+                iconClass: "text-2xl",
               },
             ].map((resource) => (
               <Card
@@ -416,7 +442,9 @@ vercel --prod`}</code>
                 className="hover:shadow-md transition-shadow"
               >
                 <CardContent className="p-4 text-center">
-                  <div className="text-2xl mb-2">{resource.icon}</div>
+                  <div className="mb-2">
+                    <resource.IconComponent className={resource.iconClass} />
+                  </div>
                   <h4 className="font-semibold mb-2">{resource.name}</h4>
                   <Button size="sm" variant="outline" asChild>
                     <a
